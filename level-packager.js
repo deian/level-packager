@@ -10,8 +10,9 @@ function packager (leveldown) {
 
     options.db = leveldown
 
-    return levelup(location, options, callback)
+    levelup.call(this, location, options, callback)
   }
+  util.inherits(Level, levelup);
 
   [ 'destroy', 'repair' ].forEach(function (m) {
     if (util.isFunction(leveldown[m]) {
